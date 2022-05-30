@@ -5,6 +5,10 @@ import struct
 import curses
 import pyaudio
 import numpy as np
+
+import matplotlib  
+matplotlib.use('TkAgg')
+
 import matplotlib.pyplot as plt
 
 # 'curses' configuration
@@ -307,7 +311,7 @@ def invert(data):
     """
 
     # Convert the bytestring into an integer
-    intwave = np.fromstring(data, np.int32)
+    intwave = np.fromstring(data, dtype=np.uint8)
     # Invert the integer
     intwave = np.invert(intwave)
     # Convert the integer back into a bytestring
